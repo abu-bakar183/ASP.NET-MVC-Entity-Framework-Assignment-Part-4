@@ -1,0 +1,66 @@
+@model Insurance.Models.Insuree
+
+@{
+    ViewBag.Title = "Create Insurance Quote";
+}
+
+<h2>Request an Insurance Quote</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName)
+            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName)
+            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmailAddress)
+            @Html.TextBoxFor(model => model.EmailAddress, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateOfBirth)
+            @Html.TextBoxFor(model => model.DateOfBirth, new { @class = "form-control", type="date" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CarYear)
+            @Html.TextBoxFor(model => model.CarYear, new { @class = "form-control", type="number" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CarMake)
+            @Html.TextBoxFor(model => model.CarMake, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CarModel)
+            @Html.TextBoxFor(model => model.CarModel, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SpeedingTickets)
+            @Html.TextBoxFor(model => model.SpeedingTickets, new { @class = "form-control", type="number" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DUI, "Have you had a DUI?")
+            @Html.CheckBoxFor(model => model.DUI)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CoverageType, "Full Coverage?")
+            @Html.CheckBoxFor(model => model.CoverageType)
+        </div>
+
+        <button type="submit" class="btn btn-primary">Get Quote</button>
+    </div>
+}
